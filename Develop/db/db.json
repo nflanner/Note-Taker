@@ -1,6 +1,12 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Test2",
+        "text": "This is a test for UI functionality",
+        "id": "d9e4"
+    },
+    {
+        "title": "Test3",
+        "text": "This is a test for db functionality",
+        "id": "28bb"
     }
 ]
