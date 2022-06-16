@@ -58,7 +58,7 @@ const renderActiveNote = () => {
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
-  } else {
+  } else {handleNoteDelete
     noteTitle.removeAttribute('readonly');
     noteText.removeAttribute('readonly');
     noteTitle.value = '';
@@ -67,6 +67,7 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
+  console.log('SAVE BTN PRESSED');
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
@@ -74,11 +75,13 @@ const handleNoteSave = () => {
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
+    console.log('saved notes')
   });
 };
 
 // Delete the clicked note
 const handleNoteDelete = (e) => {
+  console.log('DELETING');
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
 
@@ -92,6 +95,7 @@ const handleNoteDelete = (e) => {
   deleteNote(noteId).then(() => {
     getAndRenderNotes();
     renderActiveNote();
+    console.log('deleted notes')
   });
 };
 
@@ -104,6 +108,7 @@ const handleNoteView = (e) => {
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
+  console.log('NEW NOTE BTN PRESSED');
   activeNote = {};
   renderActiveNote();
 };
@@ -171,7 +176,10 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then(renderNoteList);
+const getAndRenderNotes = () => {
+  getNotes().then(renderNoteList)
+  
+};
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);

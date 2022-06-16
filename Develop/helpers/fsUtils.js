@@ -20,6 +20,7 @@ const writeToFile = (destination, content) =>
  *  @returns {void} Nothing
  */
 const readAndAppend = (content, file) => {
+  console.log('APPENDING');
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
@@ -31,4 +32,23 @@ const readAndAppend = (content, file) => {
   });
 };
 
-module.exports = { readFromFile, writeToFile, readAndAppend };
+/**
+ *  Function to read data from a given a file and append some content
+ *  @param {string} id The content you want to append to the file.
+ *  @param {string} file The path to the file you want to save to.
+ *  @returns {void} Nothing
+ */
+const readAndDelete = (id, file) => {
+  console.log('DELETING');
+  fs.readFile(file, 'utf8', (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      let parsedData = JSON.parse(data);
+      parsedData = parsedData.filter((obj) => obj.id != id);
+      writeToFile(file, parsedData);
+    }
+  })
+}
+
+module.exports = { readFromFile, writeToFile, readAndAppend, readAndDelete };
