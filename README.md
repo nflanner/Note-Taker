@@ -50,7 +50,7 @@ The following images show the web application's appearance and functionality:
 
 Click [here](https://github.com/nflanner/Note-Taker) to visit the associated GitHub repo.
 
-Click [here]() to visit the deployed application on Heroku.
+Click [here](https://nameless-tor-56431.herokuapp.com/) to visit the deployed application on Heroku.
 
 
 ## Grading Requirements
