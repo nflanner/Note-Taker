@@ -12,7 +12,6 @@ notes.get('/', (req, res) => {
 // POST Route for a adding notes
 notes.post('/', (req, res) => {
   console.info(`${req.method} request received to add a note`);
-  console.log(req.body);
 
   const { title, text } = req.body;
 
@@ -32,10 +31,8 @@ notes.post('/', (req, res) => {
 
 notes.delete('/:id', (req, res) => {
   console.info(`${req.method} request received to add a note`);
-  console.log(req.body);
 
   const id = req.params.id;
-  console.log(id);
 
   if (id) {
     readAndDelete(id, './db/db.json');

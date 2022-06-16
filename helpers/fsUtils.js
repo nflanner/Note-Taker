@@ -20,7 +20,6 @@ const writeToFile = (destination, content) =>
  *  @returns {void} Nothing
  */
 const readAndAppend = (content, file) => {
-  console.log('APPENDING');
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
@@ -39,7 +38,6 @@ const readAndAppend = (content, file) => {
  *  @returns {void} Nothing
  */
 const readAndDelete = (id, file) => {
-  console.log('DELETING');
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.log(err);
